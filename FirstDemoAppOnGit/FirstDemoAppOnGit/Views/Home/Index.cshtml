@@ -1,31 +1,51 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿
+@{
+    ViewBag.Title = "Index";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<table width="100%" cellpadding="2" cellspacing="2" border="0">
+    <tr>
+        <td colspan="3">
+            <b style="font-size:20px">Admin's Corner</b>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3">
+            This is your Control Panel for your Blog
+        </td>
+    </tr>
+    <tr>
+        <td width="5%"></td>
+        <td width="5%">
+            <img src="~/Images/blog-post-icon.jpg" alt="BlogPosts" />
+        </td>
+        <td>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+            <a href="@Url.Action("BlogPosts","Home")" class="link1" style="font-size:14px">My Blog Posts</a>
+            <br />
+            Add, review and edit your Blog Posts
+        </td>
+    </tr>
+    <tr>
+        <td width="5%"></td>
+        <td width="5%">
+            <img src="~/Images/comment.jpg" alt="MyReminders" />
+        </td>
+        <td>
+            <a href="@Url.Action("Comments","Home")" class="link1" style="font-size:14px">The Comments on your Posts</a>
+            <br />
+            add, view & Edit the Comments on your Posts
+        </td>
+    </tr>
+    <tr>
+        <td width="5%"></td>
+        <td width="5%">
+            <img src="~/Images/facebook.jpg" alt="Facebook" />
+        </td>
+        <td>
+            <a href="#" class="link1" style="font-size:14px">Connect to Facebook</a>
+            <br />
+            Link Your account to Facebook!
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,124 @@
+﻿
+@*for social media icons*@
+<style type="text/css">
+    .social-item {
+        width: 40px;
+        height: 40px;
+        position: relative;
+        cursor: pointer;
+        float: left;
+        margin: 5px;
+    }
+
+        .social-item .original {
+            width: 100%;
+            height: 100%;
+        }
+
+        .social-item .over {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            -webkit-transition: all 0.3s linear;
+            -moz-transition: all 0.3s linear;
+            transition: all 0.3s linear;
+        }
+
+        .social-item:hover .over {
+            opacity: 1;
+        }
+</style>
+
+
+<style type="text/css">
+    .menuLink {
+        color: white;
+        font-weight: bold;
+        text-decoration: none;
+        font-family: Tahoma;
+        font-size: 12px;
+    }
+
+        .menuLink:hover {
+            color: yellow;
+        }
+</style>
+
+<table style="width:100%;border:1px solid green">
+    <tr>
+        <td align="right">
+            <span id="spanDateTime"></span>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <img id="img1" src="~/Images/HeaderBlog1.JPG" style="width:100%;height:250px" />
+        </td>
+    </tr>
+    <tr>
+        <td style="text-align:right;">
+            <marquee height="40" direction="left" style="border:5px solid red;background-color:green;color:white;border-radius:20px" ;><h1 style="margin:0px">Welcome ^_^ </h1></marquee>
+            @*line-height:40px;*@
+            @*<marquee direction="left"> Welcome to Administration </marquee>*@
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="social-item">
+                <img src="http://tdfts.com/projects/akvile_test/website/img/socialmedia/fb.png" class="original" />
+                <img src="http://tdfts.com/projects/akvile_test/website/img/socialmedia/fbhover.png" class="over" />
+            </div>
+
+            <div class="social-item">
+                <img src="http://tdfts.com/projects/akvile_test/website/img/socialmedia/twitter.png" class="original" />
+                <img src="http://tdfts.com/projects/akvile_test/website/img/socialmedia/twitterhover.png" class="over" />
+            </div>
+
+            <div class="social-item">
+                <img src="http://tdfts.com/projects/akvile_test/website/img/socialmedia/google.png" class="original" />
+                <img src="http://tdfts.com/projects/akvile_test/website/img/socialmedia/googlehover.png" class="over" />
+            </div>
+        </td>
+    </tr>
+    <tr style="background-color: #029D03">
+        <td colspan="2" align="center" class="menuLink">
+            <a class="menuLink" href="/Home/Index">Home</a>
+            <b style="color: white">|</b>
+            <a class="menuLink" href="#">About Us</a>
+            <b style="color: white">|</b>
+            <a class="menuLink" href="#">Services</a>
+            <b style="color: white">|</b>
+            <a class="menuLink" href="/Home/Registeration">Sign up Now</a>
+            <b style="color: white">|</b>
+            <a class="menuLink" href="#">How It Works</a>
+            <b style="color: white">|</b>
+            <a class="menuLink" href="/Home/LogIn">Log In To The Blog</a>
+        </td>
+    </tr>
+</table>
+
+
+
+@*<div>
+        <ul>
+            <li><a href="#">Home </a> | </li>
+            <li><a href="#"> About Us </a> | </li>
+            <li><a href="#"> Services </a> | </li>
+            <li><a href="#"> Sign Up Now </a> | </li>
+            <li><a href="#"> How It Works </a> | </li>
+            <li><a href="#"> Free Ecards </a> | </li>
+        </ul>
+    </div>
+    <style type="text/css">
+        ul{
+            width:70%;
+        }
+        li{
+            float:left;
+            padding-left:20px;
+            padding-right:20px;
+        }
+    </style>*@
