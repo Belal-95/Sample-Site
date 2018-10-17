@@ -25,6 +25,7 @@
     @Html.Partial("_Header")
     <div style="border:2px solid gray">
         @RenderBody()
+        @RenderSection("scripts", required: false)
     </div>
     @Html.Partial("_Footer")
 </body>

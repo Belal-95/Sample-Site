@@ -4,6 +4,19 @@
 }
 
 <table width="100%" cellpadding="2" cellspacing="2" border="0">
+    <tr style="background-color: #029D03">
+        <td colspan="3" align="center" class="menuLink">
+            <a class="menuLink" href="/Home/Index">Control Panel</a>
+            <b style="color: white">|</b>
+            <a class="menuLink" href="/tblPosts/Index">Your Posts</a>
+            <b style="color: white">|</b>
+            <a class="menuLink" href="/tblComments/Index">Your Comments</a>
+            <b style="color: white">|</b>
+            <a class="menuLink" href="/Home/Logout">Change Your Password</a>
+            <b style="color: white">|</b>
+            <a class="menuLink" href="/Home/Logout">Log Out</a>
+        </td>
+    </tr>
     <tr>
         <td colspan="3">
             <b style="font-size:20px">Admin's Corner</b>
@@ -21,7 +34,7 @@
         </td>
         <td>
 
-            <a href="@Url.Action("BlogPosts","Home")" class="link1" style="font-size:14px">My Blog Posts</a>
+            <a href="@Url.Action("Index","tblPosts")" class="link1" style="font-size:14px">My Blog Posts</a>
             <br />
             Add, review and edit your Blog Posts
         </td>
@@ -32,7 +45,7 @@
             <img src="~/Images/comment.jpg" alt="MyReminders" />
         </td>
         <td>
-            <a href="@Url.Action("Comments","Home")" class="link1" style="font-size:14px">The Comments on your Posts</a>
+            <a href="@Url.Action("Index","tblComments")" class="link1" style="font-size:14px">The Comments on your Posts</a>
             <br />
             add, view & Edit the Comments on your Posts
         </td>

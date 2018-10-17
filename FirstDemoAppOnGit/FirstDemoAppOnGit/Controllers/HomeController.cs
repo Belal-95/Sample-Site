@@ -11,10 +11,14 @@ namespace FirstDemoAppOnGit.Controllers
 {
     public class HomeController : Controller
     {
-        MyBlogEntities dbEntities = new MyBlogEntities();
+        MyBlogEntities1 dbEntities = new MyBlogEntities1();
 
         public ActionResult Index()
         {
+            if(Session["EmailId"] == null )
+            {
+               return RedirectToAction("Login");
+            }
             return View();
         }
 
@@ -41,6 +45,7 @@ namespace FirstDemoAppOnGit.Controllers
         [HttpPost]
         public ActionResult Login(string email, string password)
         {
+            // Here i changed the return type of the SP to make it return a model type ("tblAdminAccount" model type) 
             List<tblAdminAccount> objAdminAccount = dbEntities.SP_CheckAdminLogin(email, Utility.Encrypt(password, "ER")).ToList();
 
             if (objAdminAccount.Count > 0)
@@ -95,6 +100,57 @@ namespace FirstDemoAppOnGit.Controllers
             {
                 ViewBag.Status = "Invalid Email Address or Password";
             }
+            return View();
+        }
+
+        public JsonResult CheckEmailAvailability(string email)
+        {
+            return Json(dbEntities.SP_CheckEmailAvailability(email),JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult SendForgetPassword(string email)
+        {
+
+            int status = 1;
+            try
+            {
+                Random objRandom = new Random();
+                int num = objRandom.Next(999999999);
+                DateTime dt = DateTime.Now;
+                string password = num.ToString() + dt.Year.ToString() + dt.Month.ToString() + dt.Day.ToString() + dt.Hour.ToString() + dt.Minute.ToString() + dt.Second.ToString() + dt.Millisecond.ToString();
+                dbEntities.SP_UpdatPasswordByEmail(email,Utility.Encrypt(password,"ER"));
+
+                string message = string.Empty;
+
+                message += "<table style='width:700px;border:10px outset blue;border-redius:30px'>";
+
+                message += "<tr><td><img src='https://i0.wp.com/www.anphira.com/wp-content/uploads/2013/01/header.jpg' width=700px alt='Reset your Password' /></td></tr>";
+
+                message += "<tr style='background-color:yellow color:green'><td><b>Dear Admin, </b><br /><br />";
+
+                message += " Your new Password is: " + password + "<br /><br />";
+
+                message += "<b>Thanks & Best Regards,</b><br />Belal - Blog<br />Managment Team<br />Damascus Syria</td></tr></table>";
+
+                Utility.SendEmail("Belal - Blog  Reset Password", email, message, true);
+            }
+            catch
+            {
+                status = 0;
+            }
+
+            return Json(status,JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult Logout()
+        {
+            Session.Abandon();
+            Session.Remove("EmailId");
+            Session.Remove("LastAccessDateTime");
+
+            return RedirectToAction("Login");
+        }
+        public ActionResult ChangePassword()
+        {
             return View();
         }
     }

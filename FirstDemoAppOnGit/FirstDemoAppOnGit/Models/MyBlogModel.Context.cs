@@ -15,10 +15,10 @@ namespace FirstDemoAppOnGit.Models
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class MyBlogEntities : DbContext
+    public partial class MyBlogEntities1 : DbContext
     {
-        public MyBlogEntities()
-            : base("name=MyBlogEntities")
+        public MyBlogEntities1()
+            : base("name=MyBlogEntities1")
         {
         }
     
@@ -28,6 +28,8 @@ namespace FirstDemoAppOnGit.Models
         }
     
         public virtual DbSet<tblAdminAccount> tblAdminAccounts { get; set; }
+        public virtual DbSet<tblComment> tblComments { get; set; }
+        public virtual DbSet<tblPost> tblPosts { get; set; }
     
         public virtual ObjectResult<tblAdminAccount> SP_CheckAdminLogin(string emailId, string password)
         {
@@ -53,6 +55,28 @@ namespace FirstDemoAppOnGit.Models
                 new ObjectParameter("Password", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<tblAdminAccount>("SP_CheckAdminLogin", mergeOption, emailIdParameter, passwordParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> SP_CheckEmailAvailability(string emailId)
+        {
+            var emailIdParameter = emailId != null ?
+                new ObjectParameter("EmailId", emailId) :
+                new ObjectParameter("EmailId", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("SP_CheckEmailAvailability", emailIdParameter);
+        }
+    
+        public virtual int SP_UpdatPasswordByEmail(string email, string password)
+        {
+            var emailParameter = email != null ?
+                new ObjectParameter("email", email) :
+                new ObjectParameter("email", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("password", password) :
+                new ObjectParameter("password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_UpdatPasswordByEmail", emailParameter, passwordParameter);
         }
     }
 }

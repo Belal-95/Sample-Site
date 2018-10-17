@@ -1,0 +1,42 @@
+﻿@model FirstDemoAppOnGit.Models.tblComment
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblComment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CommentBody)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CommentBody)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NameOfUser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NameOfUser)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblPost.PostTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblPost.PostTitle)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CommentId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
