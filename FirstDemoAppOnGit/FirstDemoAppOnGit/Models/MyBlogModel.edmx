@@ -48,6 +48,10 @@
           <Parameter Name="EmailId" Type="varchar" Mode="In" />
           <Parameter Name="Password" Type="varchar(max)" Mode="In" />
         </Function>
+        <Function Name="SP_CheckAdminOldPassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="emailId" Type="varchar" Mode="In" />
+          <Parameter Name="oldPassword" Type="varchar(max)" Mode="In" />
+        </Function>
         <Function Name="SP_CheckEmailAvailability" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="EmailId" Type="varchar" Mode="In" />
         </Function>
@@ -128,6 +132,10 @@
             <Parameter Name="email" Mode="In" Type="String" />
             <Parameter Name="password" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="SP_CheckAdminOldPassword" ReturnType="Collection(Int32)">
+            <Parameter Name="emailId" Mode="In" Type="String" />
+            <Parameter Name="oldPassword" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="SP_CheckAdminLogin_Result">
           <Property Type="String" Name="Emailid" Nullable="false" MaxLength="50" />
@@ -174,6 +182,7 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="SP_CheckEmailAvailability" FunctionName="MyBlogModel.Store.SP_CheckEmailAvailability" />
           <FunctionImportMapping FunctionImportName="SP_UpdatPasswordByEmail" FunctionName="MyBlogModel.Store.SP_UpdatPasswordByEmail" />
+          <FunctionImportMapping FunctionImportName="SP_CheckAdminOldPassword" FunctionName="MyBlogModel.Store.SP_CheckAdminOldPassword" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -78,5 +78,18 @@ namespace FirstDemoAppOnGit.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_UpdatPasswordByEmail", emailParameter, passwordParameter);
         }
+    
+        public virtual ObjectResult<Nullable<int>> SP_CheckAdminOldPassword(string emailId, string oldPassword)
+        {
+            var emailIdParameter = emailId != null ?
+                new ObjectParameter("emailId", emailId) :
+                new ObjectParameter("emailId", typeof(string));
+    
+            var oldPasswordParameter = oldPassword != null ?
+                new ObjectParameter("oldPassword", oldPassword) :
+                new ObjectParameter("oldPassword", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("SP_CheckAdminOldPassword", emailIdParameter, oldPasswordParameter);
+        }
     }
 }

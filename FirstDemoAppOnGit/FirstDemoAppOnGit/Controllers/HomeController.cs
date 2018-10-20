@@ -144,13 +144,40 @@ namespace FirstDemoAppOnGit.Controllers
         public ActionResult Logout()
         {
             Session.Abandon();
-            Session.Remove("EmailId");
+            Session.Remove("c");
             Session.Remove("LastAccessDateTime");
 
             return RedirectToAction("Login");
         }
         public ActionResult ChangePassword()
         {
+            if (Session["EmailId"] == null)
+            {
+                return RedirectToAction("Login");
+            }
+            return View();
+        }
+
+        public JsonResult CheckOldPassword(string oldPwd, string emailId)
+        {
+            return Json(dbEntities.SP_CheckAdminOldPassword(emailId, Utility.Encrypt(oldPwd, "ER")), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public ActionResult ChangePassword(string oldPassword,string newPassword, string newPasswordAgain)
+        {
+            if (Session["EmailId"] == null)
+                return RedirectToAction("Login");
+
+            tblAdminAccount objAdminAccount = dbEntities.tblAdminAccounts.Find(Session["EmailId"].ToString());
+
+            objAdminAccount.password = Utility.Encrypt(newPassword, "ER");
+
+            if (dbEntities.SaveChanges() > 0)
+                ViewBag.Status = 1;
+            else
+                ViewBag.Status = 0;
+
             return View();
         }
     }

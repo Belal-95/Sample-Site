@@ -8,7 +8,11 @@
 
 <p>
     @Html.ActionLink("Create New", "Create")
+    &nbsp;&nbsp;&nbsp;
+    @*<input type="button" id="btnBack" value="Back" onclick="javascript:document.location.href='@Url.Action("Index","Home")'" />*@
+    @Html.ActionLink("Back to Control Panel", "Index", "Home")
 </p>
+
 <table class="table" border="1" style="border-color:green;border-width:medium" width="100%">
     <tr>
         <th>

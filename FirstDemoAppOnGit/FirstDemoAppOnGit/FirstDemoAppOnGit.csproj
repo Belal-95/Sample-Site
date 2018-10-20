@@ -193,6 +193,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\blog-post-icon.jpg" />
+    <Content Include="Images\comment.jpg" />
+    <Content Include="Images\HeaderBlog.JPG" />
+    <Content Include="Images\HeaderBlog1.JPG" />
+    <Content Include="Images\Right.png" />
+    <Content Include="Images\Wrong.png" />
     <Content Include="Models\MyBlogModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>MyBlogModel.edmx</DependentUpon>
