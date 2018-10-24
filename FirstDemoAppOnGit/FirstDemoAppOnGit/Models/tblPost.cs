@@ -25,7 +25,8 @@ namespace FirstDemoAppOnGit.Models
         public string PostBody { get; set; }
         public Nullable<System.DateTime> PostDate { get; set; }
         public bool IsVisible { get; set; }
-    
+        
+        public virtual tblComment tblComment { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblComment> tblComments { get; set; }
     }

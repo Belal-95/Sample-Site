@@ -180,5 +180,19 @@ namespace FirstDemoAppOnGit.Controllers
 
             return View();
         }
+
+        public ActionResult PostsPage()
+        {
+
+            return View(dbEntities.tblPosts.ToList());
+        }
+
+        public ActionResult OnePostPage(int? id)
+        {
+
+            tblPost tblPost = dbEntities.tblPosts.Find(id);
+            // var model = dbEntities.tblPosts.Include("tblComments");
+            return View(tblPost);
+        }
     }
 }

@@ -261,6 +261,8 @@
     <Content Include="Views\tblPosts\Index.cshtml" />
     <Content Include="Views\Home\Logout.cshtml" />
     <Content Include="Views\Home\ChangePassword.cshtml" />
+    <Content Include="Views\Home\PostsPage.cshtml" />
+    <Content Include="Views\Home\OnePostPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

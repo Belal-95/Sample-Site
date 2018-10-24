@@ -1,0 +1,50 @@
+﻿@model FirstDemoAppOnGit.Models.tblPost
+
+@{
+    ViewBag.Title = "OnePostPage";
+}
+
+
+
+<h2>OnePostPage</h2>
+<table width="100%">
+    <tr align="center" style="font-size:larger;font-family:Arial">
+        <td>
+            <h2>@Html.DisplayFor(model => model.PostTitle)</h2>
+        </td>
+    </tr>
+    <tr></tr>
+    <tr align="center">
+        <td>
+            @Html.DisplayFor(model => model.PostBody)
+        </td>
+    </tr>
+    <tr>
+
+        <td>Date Of Publish is: @Html.DisplayFor(model => model.PostDate)</td>
+
+    </tr>
+    @*<tr>
+        <td> comment body: 
+            @Html.DisplayFor(model => model.tblComment.CommentBody)
+        </td>
+
+    </tr>
+    <tr>
+        <td> name of users : 
+            @Html.DisplayFor(model => model.tblComment.NameOfUser)
+        </td>
+
+    </tr>
+    <tr>
+        <td> post id :
+            @Html.DisplayFor(model => model.tblComment.PostId)
+        </td>
+
+    </tr>*@
+    @*@foreach (var item in IEnumerable(Model))
+        {
+            @Html.DisplayFor(model => model.tblComments.GetEnumerator())
+        }*@
+    <tr></tr>
+</table>

@@ -1,0 +1,90 @@
+﻿@model IEnumerable<FirstDemoAppOnGit.Models.tblPost>
+
+@{
+    ViewBag.Title = "PostsPage";
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        
+
+        $("#tableDashboard").find("td").addClass("tdStyle").find("a").addClass("linkStyle");
+
+        $("#tableDashboard").find("td").hover(function () {
+            $(this).css({ "background-color": "red", "border": "10px inset black" }).find("a").css("color", "white");
+        },
+            function () {
+                $(this).css({ "background-color": "aqua", "border": "10px outset green" }).find("a").css("color", "black");
+
+            });
+    });
+</script>
+
+<style type="text/css">
+    .tdStyle {
+        width: 25%;
+        height: 75px;
+        border: 10px outset green;
+        border-radius: 10px;
+        margin: 5px;
+        padding: 5px;
+        background-color: turquoise;
+        color: white;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .linkStyle {
+        font-family: Tahoma;
+        font-size: 20px;
+        font-weight: bold;
+        color: black;
+        text-shadow: 5px 2px 5px green;
+        text-decoration: none;
+    }
+</style>
+
+<h2>Here are our posts</h2>
+
+<table width="100%" style="border:5px solid green" border="1" id="tableDashboard">
+    @foreach (var item in Model)
+    {
+        if (item.IsVisible)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink((@Html.Name(item.PostTitle)).ToString(), "OnePostPage", new { id = item.PostId })
+                </td>
+            </tr>
+        }
+    }
+
+</table>
+        @*<tr align="center">
+                    <td>
+                        @
+
+                        @Html.DisplayFor(model => item.PostId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.PostTitle)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.PostBody)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.PostDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.IsVisible)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.PostId })
+                        &nbsp;
+                    @Html.ActionLink("Delete", "Delete", new { id = item.PostId })
+                    &nbsp;
+                    @Html.ActionLink("Details", "Details", new { id = item.PostId })
+                </td>
+
+            </tr>*@
+   

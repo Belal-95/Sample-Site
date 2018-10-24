@@ -19,7 +19,7 @@ namespace FirstDemoAppOnGit.Controllers
         {
             if (Session["EmailId"] == null)
             {
-                return RedirectToAction("Login");
+                return RedirectToAction("Login", "Home");
             }
             return View(db.tblPosts.ToList());
         }
@@ -29,7 +29,7 @@ namespace FirstDemoAppOnGit.Controllers
         {
             if (Session["EmailId"] == null)
             {
-                return RedirectToAction("Login");
+                return RedirectToAction("Login", "Home");
             }
             if (id == null)
             {
@@ -48,7 +48,7 @@ namespace FirstDemoAppOnGit.Controllers
         {
             if (Session["EmailId"] == null)
             {
-                return RedirectToAction("Login");
+                return RedirectToAction("Login", "Home");
             }
             return View();
         }
@@ -75,7 +75,7 @@ namespace FirstDemoAppOnGit.Controllers
         {
             if (Session["EmailId"] == null)
             {
-                return RedirectToAction("Login");
+                return RedirectToAction("Login", "Home");
             }
             if (id == null)
             {
@@ -110,7 +110,7 @@ namespace FirstDemoAppOnGit.Controllers
         {
             if (Session["EmailId"] == null)
             {
-                return RedirectToAction("Login");
+                return RedirectToAction("Login","Home");
             }
             if (id == null)
             {
